@@ -9,7 +9,7 @@
 
 ### Workflow
 
-The project follows [Git-flow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow) workflow for the codebase maintenance and release lifecycle. 
+The project follows [Git-flow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow) workflow for the codebase maintenance and release lifecycle.
 
 1. Fork and clone the repository
 
@@ -173,14 +173,16 @@ If worker or reviewer are not publishing any updates for the bounty for 2 workin
 
 ## Project structure
 
-We identify 4 separate applications that will have their release lifecycle independently of each other. These applications are:
+To simplify the structure of a given project, applications should be identified with an independent release lifecycle.
+
+An example for those might be:
 
 - Frontend: User facing application. It might be a web application or a mobile native application.
 - Backend: Server side application storing and managing user data and main business logic.
 - Project website: Webpage with project foundation and design details.
 - gh-pages: contains the compiled website that is going to be used by GitHub pages.
 
-These applications will leverage Continuous Integration and Continuous Deployment capabilities available from GitHub Actions. Each application will have its tech stack and therefore its build, test, and release processes. We recognize then the need for enabling the applications to be extended and enhanced without conflicting with the independent development lifecycles and versioning of the other components. To achieve this we then created 4 orphan main branches.
+These applications will leverage Continuous Integration and Continuous Deployment capabilities available from GitHub Actions. Each application will have its tech stack and therefore its build, test, and release processes. We recognize then the need for enabling the applications to be extended and enhanced without conflicting with the independent development lifecycles and versioning of the other components. E.g:
 
 - **frontend/master**, for frontend development
 - **backend/master**, for backend development
@@ -188,8 +190,8 @@ These applications will leverage Continuous Integration and Continuous Deploymen
 - **gh-pages**, for the project website
 
 These branches will behave as a regular master branch, protected from direct changes on the branch, and only updated when a pull request is approved by a reviewer. Additionally, we can configure separate CI/CD pipelines based on the branch name simplifying maintenance.
-The master branches will contain the latest production versions of each one of the applications and therefore the team should aim to keep the codebase of this branch stable and clean. 
-From theses branches we created the development branches for frontend and backend applications:
+The master branches will contain the latest production versions of each one of the applications and therefore the team should aim to keep the codebase of this branch stable and clean.
+From theses branches we development branches for frontend and backend applications could be created:
 
 - **frontend/develop**
 - **backend/develop**
@@ -201,4 +203,4 @@ All of the features branches should maintain the application name as its prefix.
 - frontend/fix/style: this branch is for a fix on the style for the frontend application.
 - website/chore/readme-update: this branch is for a chore on the readme file for the website application.
 
-The goal is to apply the git-flow workflow to our development lifecycle and to simplify the maintenance of each application that belongs to this project.
+The goal is to apply the git-flow workflow to our development lifecycle and to simplify the maintenance of each application that belongs to a project.
